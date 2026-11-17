@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <meta name="description" content="OMSI PHOTO — фотобаза виртуального общественного транспорта из OMSI 2 и OpenOMSI.">
+  <title>OMSI PHOTO — фотобаза виртуального транспорта</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="OMSI PHOTO — главная"><span class="brand-mark">O</span><span>OMSI<span class="brand-light"> PHOTO</span><small>ВИРТУАЛЬНЫЙ ТРАНСПОРТ В КАДРЕ</small></span></a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a class="active" href="#gallery">Фотографии</a><a href="#categories">Категории</a><a href="#about">О проекте</a>
+    </nav>
+    <div class="top-actions"><button class="button button-quiet" id="loginBtn">Войти</button><button class="button button-accent" id="uploadTop">＋ Загрузить</button><button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">☰</button></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> СООБЩЕСТВО OMSI</div>
+        <h1>Мир виртуального транспорта<br><em>в одном кадре.</em></h1>
+        <p>Фотографии автобусов, троллейбусов, трамваев и целых городов из OMSI 2 и OpenOMSI. Собирай коллекцию и делись своими снимками.</p>
+        <div class="hero-actions"><a class="button button-accent button-large" href="#gallery">Смотреть фотографии <span>↗</span></a><button class="button button-outline button-large" id="uploadHero">Добавить снимок</button></div>
+        <div class="hero-stats"><div><b id="photoCount">0</b><span>фотографий</span></div><i></i><div><b>2</b><span>симулятора</span></div><i></i><div><b>∞</b><span>маршрутов</span></div></div>
+      </div>
+      <div class="hero-art" aria-label="Иллюстрация городского автобуса">
+        <div class="art-glow"></div><div class="art-label">VIRTUAL TRANSIT / 001</div>
+        <div class="road"></div><div class="bus-illustration"><div class="bus-destination">OMSI PHOTO <span>23</span></div><div class="bus-windows"><i></i><i></i><i></i><i></i></div><div class="bus-stripe"></div><div class="bus-lights"><i></i><i></i></div><div class="wheel wheel-one"></div><div class="wheel wheel-two"></div></div>
+        <div class="art-caption"><span>01 / CITY ROUTES</span><span>SCREENSHOT ARCHIVE</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="section-heading"><div><div class="eyebrow">АРХИВ СООБЩЕСТВА</div><h2>Свежие фотографии</h2><p>Лучшие моменты из виртуальных городов</p></div><span class="section-count" id="resultCount">0 снимков</span></div>
+      <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Поиск по модели, карте или автору…"></label><div class="filters"><select id="simFilter" aria-label="Симулятор"><option value="">Все симуляторы</option><option>OMSI 2</option><option>OpenOMSI</option></select><select id="typeFilter" aria-label="Тип транспорта"><option value="">Весь транспорт</option><option>Автобус</option><option>Троллейбус</option><option>Трамвай</option><option>Интерьер</option><option>Карта и пейзаж</option></select><select id="sortFilter" aria-label="Сортировка"><option value="new">Сначала новые</option><option value="popular">Популярные</option></select></div></div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+      <div class="empty-state" id="emptyState" hidden><div class="empty-icon">▧</div><h3>Пока здесь тихо</h3><p>Попробуй изменить фильтры или добавь первую фотографию.</p><button class="button button-accent" id="emptyUpload">Загрузить фото</button></div>
+    </section>
+
+    <section class="category-section" id="categories"><div class="section-heading"><div><div class="eyebrow">ИССЛЕДУЙ АРХИВ</div><h2>Что будем смотреть?</h2></div></div><div class="category-grid">
+      <button class="category-card cat-bus" data-category="Автобус"><span class="cat-icon">▰</span><span><b>Автобусы</b><small>Городские и пригородные</small></span><span class="cat-arrow">↗</span></button>
+      <button class="category-card cat-trolley" data-category="Троллейбус"><span class="cat-icon">ϟ</span><span><b>Троллейбусы</b><small>Электрический транспорт</small></span><span class="cat-arrow">↗</span></button>
+      <button class="category-card cat-tram" data-category="Трамвай"><span class="cat-icon">▤</span><span><b>Трамваи</b><small>Рельсовые маршруты</small></span><span class="cat-arrow">↗</span></button>
+      <button class="category-card cat-scenes" data-category="Карта и пейзаж"><span class="cat-icon">⌖</span><span><b>Карты и города</b><small>Улицы, остановки и виды</small></span><span class="cat-arrow">↗</span></button>
+    </div></section>
+
+    <section class="about-section" id="about"><div><div class="eyebrow">О ПРОЕКТЕ</div><h2>Твоя фотолетопись<br>виртуального транспорта.</h2></div><p>OMSI PHOTO — независимый архив скриншотов из OMSI 2 и OpenOMSI. Здесь можно собирать фотографии техники, показывать свои игровые маршруты и открывать новые карты.</p></section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">O</span><span>OMSI<span class="brand-light"> PHOTO</span><small>ВИРТУАЛЬНЫЙ ТРАНСПОРТ В КАДРЕ</small></span></a><span>Фанатский проект сообщества. Не связан с разработчиками OMSI.</span><span>© <span id="year"></span> OMSI PHOTO</span></footer>
+
+  <input type="file" id="photoFile" accept="image/jpeg,image/png,image/webp" hidden>
+  <dialog id="uploadDialog" class="dialog"><form id="uploadForm"><div class="dialog-head"><div><div class="eyebrow">ТВОЙ СНИМОК</div><h2>Добавить фотографию</h2></div><button type="button" class="close-btn" data-close>×</button></div><label class="drop-zone" for="photoFile"><span class="upload-symbol">↑</span><b>Выбери изображение</b><small>JPG, PNG или WebP · до 8 МБ</small><span id="fileName" class="file-name">Файл не выбран</span></label><div class="form-grid"><label>Название<input name="title" required maxlength="80" placeholder="Например, Вечерний рейс на маршруте 23"></label><label>Симулятор<select name="simulator" required><option>OMSI 2</option><option>OpenOMSI</option></select></label><label>Тип транспорта<select name="category" required><option>Автобус</option><option>Троллейбус</option><option>Трамвай</option><option>Интерьер</option><option>Карта и пейзаж</option></select></label><label>Модель / карта<input name="model" maxlength="80" placeholder="Например, MAZ 203"></label><label class="full-field">Автор снимка<input name="author" maxlength="40" placeholder="Твой ник"></label></div><p class="local-note">На этом стартовом этапе фотографии сохраняются только в этом браузере на устройстве. Общая загрузка для всех пользователей появится после подключения аккаунтов и облачного хранилища.</p><button class="button button-accent button-large submit-btn" type="submit">Сохранить фотографию</button></form></dialog>
+  <dialog id="detailDialog" class="dialog detail-dialog"><button type="button" class="close-btn detail-close" data-close>×</button><div id="detailContent"></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
